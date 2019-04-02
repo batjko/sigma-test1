@@ -1,0 +1,117 @@
+{
+  "EDITOR_STATE": {
+    "allProjectFiles": {
+      "f6e8b712-7813-48c7-b3ac-d7de5db39625": {
+        "id": "f6e8b712-7813-48c7-b3ac-d7de5db39625",
+        "parent": null,
+        "name": "test1",
+        "type": "DIRECTORY",
+        "isDirectory": true,
+        "children": [
+          "4cb334d7-7dfc-4de0-8255-cd10fd92cbaf"
+        ],
+        "isRemovable": false,
+        "filePath": "test1"
+      },
+      "4cb334d7-7dfc-4de0-8255-cd10fd92cbaf": {
+        "id": "4cb334d7-7dfc-4de0-8255-cd10fd92cbaf",
+        "parent": "f6e8b712-7813-48c7-b3ac-d7de5db39625",
+        "name": "getThings.js",
+        "type": "LAMBDA_FILE",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "test1/getThings.js",
+        "code": "const axios = require('axios')\n\nexports.handler = (event, context, callback) => {\n    axios.get('https://api.chucknorris.io/jokes/random')\n        .then(({ data: { icon_url, value: joke } }) => {\n            callback(null, { joke, icon_url });\n        })\n        .catch(callback)\n}\n",
+        "triggers": [
+          {
+            "resourceName": "apigeuWest1test1Apiget",
+            "config": {}
+          }
+        ],
+        "config": {
+          "runtime": "nodejs8.10",
+          "handler": "handler",
+          "timeout": 60,
+          "memory": 128,
+          "layers": []
+        },
+        "testCases": {
+          "7781eaf4-20c1-4e25-9321-ef143e5be60c": {
+            "id": "7781eaf4-20c1-4e25-9321-ef143e5be60c",
+            "name": "GET test event",
+            "functionId": "4cb334d7-7dfc-4de0-8255-cd10fd92cbaf",
+            "event": "{}"
+          }
+        }
+      }
+    },
+    "deletedFiles": [
+      "test1/lambda.js"
+    ],
+    "rootNode": "f6e8b712-7813-48c7-b3ac-d7de5db39625",
+    "openFiles": [
+      "4cb334d7-7dfc-4de0-8255-cd10fd92cbaf"
+    ],
+    "currentFileId": "4cb334d7-7dfc-4de0-8255-cd10fd92cbaf",
+    "resources": {
+      "apigeuWest1test1Apiget": {
+        "name": "apigeuWest1test1Apiget",
+        "type": "API_GATEWAY",
+        "config": {
+          "selectedRegion": "eu-west-1",
+          "apiMode": 0,
+          "apiName": "test1-api",
+          "endpointType": "REGIONAL",
+          "resourceMode": 0,
+          "resourceName": "",
+          "resourcePath": "/",
+          "restMethod": "GET",
+          "proxyIntegration": false,
+          "enableCORS": true,
+          "stageMode": 0,
+          "stageName": "dev"
+        },
+        "globallyEditable": false
+      }
+    },
+    "customTemplate": {
+      "dialect": null,
+      "definitions": {}
+    },
+    "envVariables": [
+      {
+        "lambdaId": "all",
+        "varKey": "SIGMA_AWS_ACC_ID",
+        "varValue": null,
+        "shouldPersist": false,
+        "displayOnly": false,
+        "editable": false
+      }
+    ],
+    "packageJSON": {
+      "dependencies": {
+        "axios": {
+          "name": "axios",
+          "version": "0.18.0"
+        }
+      }
+    }
+  },
+  "PROJECT_META": {
+    "projectName": "test1",
+    "projectDescription": "Test project 1",
+    "projectVersion": "0.0.1",
+    "projectRegion": "eu-west-1",
+    "platform": "AWS",
+    "platformRegions": {},
+    "lastSave": 1554240048807
+  },
+  "VCS_STATE": {
+    "provider": "GitHub",
+    "repo": {
+      "name": "test1",
+      "url": "https://github.com/batjko/sigma-test1"
+    }
+  }
+}
